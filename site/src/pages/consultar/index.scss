@@ -1,0 +1,80 @@
+
+
+
+.pgconsultar{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    
+    .fundo{
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #F5F6FA;
+    }
+    .logofundo{
+        margin: 5%;
+        height: 70%;
+    }
+    .listar{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 80%;
+        height: 90%;
+        margin-top: 5vh;
+        .item{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 10vh;
+            background-color: #ffff;
+            align-items: center;
+            justify-content: space-around;
+        }
+        h4{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        tr{
+            width: 17%;
+        }
+        td{
+            width: 100%;
+        }
+    }
+    .cabe{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 100%;
+        background-color: #37C79A;
+        color: #ffff;
+        height: 10%;
+    }
+    .pesquisa{
+        display: flex;
+        align-items: center;
+        margin-top: 5vh;
+        background-color: #ffff;
+        width: 50%;
+        height: 8vh;
+        border-radius: 10px;
+        border: none;
+        padding-left: 10px;
+        img{
+            height: 50%;
+            width: 10%;
+        }
+        input{
+            width: 90%;
+            border-radius: 10px;
+            border: none;
+        }
+    }
+}

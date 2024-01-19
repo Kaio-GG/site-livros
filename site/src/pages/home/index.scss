@@ -1,0 +1,43 @@
+
+
+
+.pghome{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    background-color: #F5F6FA;
+    .fundo{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+    .logofundo{
+        margin: 5%;
+        height: 70%;
+    }
+
+    .ptcima{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #ffff;
+        div{
+            background-color: #37C79A;
+            margin-right: 10px;
+            border-radius: 100px;
+            height: 40px;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffff;
+        }
+        p{
+            margin-left: 10px;
+        }
+    }
+}

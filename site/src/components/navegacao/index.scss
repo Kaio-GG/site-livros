@@ -1,0 +1,72 @@
+
+
+
+.cmpnavegacao{
+    display: flex;
+    width: 20%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #363434;
+
+    
+    h3{
+        color: #ffff;
+    }
+    .heder{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 5%;
+    }
+    .opcoes{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 50%;
+        margin-bottom: 30%;    
+    }
+    .opcao{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 25%;
+        cursor: pointer;
+    }
+    
+    .opcao-marcada{
+        background-color: #37C79A;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 25%;
+        cursor: pointer;
+    }
+
+
+
+    .opcao:hover{
+        background-color: #37C79A;
+        transition: all 0,1 ease-in;
+        transition: all 0.2s;
+    }
+    .icones{
+        height: 30%;
+        width: 80%;
+    }
+    .iconeshome{
+        height: 30%;
+        width: 70%;
+    }
+    .iconesair{
+        margin-bottom: 15%;
+        cursor: pointer;
+    }
+}
