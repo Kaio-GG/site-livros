@@ -1,0 +1,86 @@
+
+
+.pglogin{
+   max-height: 100vh;
+   min-height: 100vh;
+   min-width: 100vw;
+   max-width: 100vw;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: linear-gradient(273deg, #2AF598 3.61%, #08AEEA 80.54%);
+   h3{
+    color: #615B5B;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+   }
+   img{
+    width: 65%
+   }
+   .card{
+        display:flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        width: 390px;
+        height: 423px;
+        flex-shrink: 0;
+        border-radius: 3px;
+        background: #FFF;
+        box-shadow: 0px 1px 12px 0px rgba(186, 186, 186, 0.25);
+   }
+   h4{
+        color: #463F3F;
+        text-align: right;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+   }
+   .inputs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+   .orgimg{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+   }
+   .orginpu{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 90%;
+   }
+   input{
+        width: 215px;
+        height: 28px;
+   }
+   button{
+    width: 103px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    border: 1px solid #656565;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    background-color: #FFF;
+   }
+   button:hover{
+    cursor: pointer;
+    transition: background-color 1.8s ease;
+    transform: scale(1.05); 
+   }
+}

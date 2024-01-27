@@ -1,17 +1,28 @@
 import './index.scss';
-import {React, useState} from 'react'
+import {React, useEffect, useState} from 'react'
 import Navegacao from '../../components/navegacao/navegacao.js';
 import Ptcima from '../../components/ptcima/ptcima.js';
-
+import { carregarTodos } from '../../api/livroApi.js';
 
 
 export default function Consultar(){
 ///<img src='/assets/image/logofundo.svg' alt='' className='logofundo'/>
+                        
+        const [item , setitem] = useState({})
+        const [nome , setnome] = useState('')       
+        const [livro, setLivro] = useState([])
+
+        async function carregarLivros(){
+             let resp = await carregarTodos();
+             setLivro(resp) 
+             console.log(resp);
+        }
+
                 
-    const [item , setitem] = useState({})
-    const [nome , setnome] = useState('')
 
-
+        useEffect(() =>{
+                carregarLivros()
+        },[])
 
     return(
         <main className='pgconsultar'>
@@ -42,24 +53,34 @@ export default function Consultar(){
                                     <th>DISPONIVEL</th>
                             </tr>
                         </thead>
-                        <tbody className='item'>
-                            <tr>
-                                    <td>#01</td>
-                            </tr>
-                            <tr>
-                                    <td>harry potter</td>
-                            </tr>
-                            <tr>      
-                                    <td>Erick somos</td>
-                            </tr>
-                            <tr>    
-                                    <td>20/50/3</td>
-                            </tr>
-                            <tr>   
-                                    <td>sim</td>
-                            </tr>  
+                        
+                        {livro.map((livro, index) => (
+                        <tbody className='item'  key={index}>
+                        <tr>
+                        <td>{livro.id}</td>
+                        </tr>
+                        <tr>
+                        <td>{livro.nome}</td>
+                        </tr>
+                        <tr>      
+                        <td>{livro.autor}</td>
+                        </tr>
+                        <tr>    
+                        <td>{livro.dt}</td>
+                        </tr>
+                        <tr>   
+                        <td>
+                                {livro.disponivel === 1 ? 
+                                <p>Sim</p>    
+                                : <p>Não</p>
+                                }
+                        </td>
+                        </tr>
                         </tbody>
-                    </table>
+                        ))}
+
+                        
+                        </table>
                 
                 
            </div>

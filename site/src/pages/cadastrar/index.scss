@@ -1,14 +1,48 @@
+.pg2 {
+    display: flex;
+    flex-direction: column;
+    max-width: 80vw;
+    min-height: 100vh;
+
+}
+
+.borrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    height: 100%;
+    flex-direction: column;
+    p,h1,h2,h3,h4{
+        font-family: Inter, sans-serif;
+    }position: absolute;
+    }
+    select{
+      appearance: none;
+      height: 52%;
+      width: 52%;
+      padding: 5px;
+      border: 1px solid #8f8f8f;
+      border-radius: 3px;
+    }
+
 
 
 .pgcadastrar{
     display: flex;
     height: 100vh;
     width: 100vw;
+    p,h1,h2,h3,h4{
+        font-family: Inter, sans-serif;
+    }
+    
+
     .fundo{
         display: flex;
         flex-direction: column;
-        width: 80%;
-        background-color: #F5F6FA;
+        width: 80vw;
+        max-width: 80vw;
+        background-color: #ffffff;;
         align-items: center;
     }
     .form{
@@ -18,7 +52,7 @@
         justify-content: space-around;
         width: 90%;
         border-radius: 6px;
-        background-color: #FFF;
+        background-color: #ffffff;
         box-shadow: 0px 0px 14px 1px rgba(173, 173, 173, 0.25);
         margin-top: 5vh;
         height: 80vh;
@@ -60,7 +94,7 @@
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
-                input , select{
+                input {
                     width: 50%;
                     height: 50%;
                     border-radius: 3px;
@@ -71,33 +105,536 @@
         }
         .arquivo{
             display: flex;
+            justify-content: center;
+            align-items: center;
             width: 20%;
             flex-direction: column;
+            height: 50%;
+            border: 1px #8f8f8f solid;
+            border-radius: 10px;
+            box-shadow: 0px 0px 14px 1px rgba(173, 173, 173, 0.25);
             input{
-                display: flex;
-                flex-direction: column;
-                height: 5vh;
+                display: none;
             }
-        }
+            label{
+              background-image:  url('../../../public/assets/image/logo-imagem-salvar.svg');
+              height: 50%;
+              width: 50%;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+            img{
+              height: 100%;
+              width: 100%;
+            }
+          }
+          .arquivo:hover{
+            border: #37C79A 2px solid;
+          }
         textarea{
             width: 60%;
             height: 100px;
         }
     }
+    .input {
+        color: #fff;
+        font-size: 0.9rem;
+        background-color: transparent;
+        width: 100%;
+        box-sizing: border-box;
+        padding-inline: 0.5em;
+        padding-block: 0.7em;
+        border: none;
+        border-bottom: var(--border-height) solid var(--border-before-color);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      .input-border {
+        position: absolute;
+        background: var(--border-after-color);
+        width: 0%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+      }
+      
+      .input:focus {
+        outline: none;
+      }
+      
+      .input:focus + .input-border {
+        width: 100%;
+      }
+      
+      .form-control {
+        position: relative;
+        --width-of-input: 300px;
+      }
+      
+      .input-alt {
+        font-size: 1.2rem;
+        padding-inline: 1em;
+        padding-block: 0.8em;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      .input-border-alt {
+        height: 3px;
+        background: linear-gradient(90deg, #FF6464 0%, #FFBF59 50%, #47C9FF 100%);
+        transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1.00);
+      }
+      
+      .input-alt:focus + .input-border-alt {
+        width: 100%;
+      }
     .btn{
-        width: 75%;
-        height: 20%;
+        margin-left: 60%;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
-        button{
-            background-color: #0084FF;
-            border-radius: 5px;
-            width: 10%;
-            color: #FFF;
-            height: 30%;
-            border: none;
-        }
+        justify-content: center;  
+        cursor: pointer;   
     }
-
+    button {
+        padding: 15px 25px;
+        border: unset;
+        border-radius: 15px;
+        color: #212121;
+        z-index: 1;
+        background: #e8e8e8;
+        position: relative;
+        font-weight: 1000;
+        font-size: 17px;
+        -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+        box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+        transition: all 250ms;
+        overflow: hidden;
+       }
+       
+       button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        border-radius: 15px;
+        background-color: #37C79A;
+        z-index: -1;
+        -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+        box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+        transition: all 250ms
+       }
+       
+       button:hover {
+        color: #e8e8e8;
+       }
+       
+       button:hover::before {
+        width: 100%;
+       }
+    .cl-toggle-switch {
+        position: relative;
+        margin-top: 9%;
+       }
+       
+       .cl-switch {
+        position: relative;
+        display: inline-block;
+       }
+       /* Input */
+       .cl-switch > input {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        z-index: -1;
+        position: absolute;
+        right: 6px;
+        top: -8px;
+        display: block;
+        margin: 0;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(0, 0, 0, 0.38);
+        outline: none;
+        opacity: 0;
+        transform: scale(1);
+        pointer-events: none;
+        transition: opacity 0.3s 0.1s, transform 0.2s 0.1s;
+       }
+       /* Track */
+       .cl-switch > span::before {
+        content: "";
+        float: right;
+        display: inline-block;
+        margin: 5px 0 5px 10px;
+        border-radius: 7px;
+        width: 36px;
+        height: 14px;
+        background-color: rgb(0, 0, 0, 0.38);
+        vertical-align: top;
+        transition: background-color 0.2s, opacity 0.2s;
+       }
+       /* Thumb */
+       .cl-switch > span::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 16px;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        transition: background-color 0.2s, transform 0.2s;
+       }
+       /* Checked */
+       .cl-switch > input:checked {
+        right: -10px;
+        background-color: #85b8b7;
+       }
+       
+       .cl-switch > input:checked + span::before {
+        background-color: #85b8b7;
+       }
+       
+       .cl-switch > input:checked + span::after {
+        background-color: #018786;
+        transform: translateX(16px);
+       }
+       /* Hover, Focus */
+       .cl-switch:hover > input {
+        opacity: 0.04;
+       }
+       
+       .cl-switch > input:focus {
+        opacity: 0.12;
+       }
+       
+       .cl-switch:hover > input:focus {
+        opacity: 0.16;
+       }
+       /* Active */
+       .cl-switch > input:active {
+        opacity: 1;
+        transform: scale(0);
+        transition: transform 0s, opacity 0s;
+       }
+       
+       .cl-switch > input:active + span::before {
+        background-color: #8f8f8f;
+       }
+       
+       .cl-switch > input:checked:active + span::before {
+        background-color: #85b8b7;
+       }
+       /* Disabled */
+       .cl-switch > input:disabled {
+        opacity: 0;
+       }
+       
+       .cl-switch > input:disabled + span::before {
+        background-color: #ddd;
+       }
+       
+       .cl-switch > input:checked:disabled + span::before {
+        background-color: #bfdbda;
+       }
+       
+       .cl-switch > input:checked:disabled + span::after {
+        background-color: #61b5b4;
+       }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.wheel-and-hamster {
+    --dur: 0.8s;
+    position: relative;
+    width: 12em;
+    height: 12em;
+    font-size: 14px;
+  }
+  
+  .wheel,
+  .hamster,
+  .hamster div,
+  .spoke {
+    position: absolute;
+  }
+  
+  .wheel,
+  .spoke {
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .wheel {
+    background: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);
+    z-index: 2;
+  }
+  
+  .hamster {
+    animation: hamster var(--dur) ease-in-out infinite;
+    top: 50%;
+    left: calc(50% - 3.5em);
+    width: 7em;
+    height: 3.75em;
+    transform: rotate(4deg) translate(-0.8em,1.85em);
+    transform-origin: 50% 0;
+    z-index: 1;
+  }
+  
+  .hamster__head {
+    animation: hamsterHead var(--dur) ease-in-out infinite;
+    background: hsl(30,90%,55%);
+    border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
+    box-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,
+          0.75em -1.55em 0 hsl(30,90%,90%) inset;
+    top: 0;
+    left: -2em;
+    width: 2.75em;
+    height: 2.5em;
+    transform-origin: 100% 50%;
+  }
+  
+  .hamster__ear {
+    animation: hamsterEar var(--dur) ease-in-out infinite;
+    background: hsl(0,90%,85%);
+    border-radius: 50%;
+    box-shadow: -0.25em 0 hsl(30,90%,55%) inset;
+    top: -0.25em;
+    right: -0.25em;
+    width: 0.75em;
+    height: 0.75em;
+    transform-origin: 50% 75%;
+  }
+  
+  .hamster__eye {
+    animation: hamsterEye var(--dur) linear infinite;
+    background-color: hsl(0,0%,0%);
+    border-radius: 50%;
+    top: 0.375em;
+    left: 1.25em;
+    width: 0.5em;
+    height: 0.5em;
+  }
+  
+  .hamster__nose {
+    background: hsl(0,90%,75%);
+    border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
+    top: 0.75em;
+    left: 0;
+    width: 0.2em;
+    height: 0.25em;
+  }
+  
+  .hamster__body {
+    animation: hamsterBody var(--dur) ease-in-out infinite;
+    background: hsl(30,90%,90%);
+    border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
+    box-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,
+          0.15em -0.5em 0 hsl(30,90%,80%) inset;
+    top: 0.25em;
+    left: 2em;
+    width: 4.5em;
+    height: 3em;
+    transform-origin: 17% 50%;
+    transform-style: preserve-3d;
+  }
+  
+  .hamster__limb--fr,
+  .hamster__limb--fl {
+    clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
+    top: 2em;
+    left: 0.5em;
+    width: 1em;
+    height: 1.5em;
+    transform-origin: 50% 0;
+  }
+  
+  .hamster__limb--fr {
+    animation: hamsterFRLimb var(--dur) linear infinite;
+    background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
+    transform: rotate(15deg) translateZ(-1px);
+  }
+  
+  .hamster__limb--fl {
+    animation: hamsterFLLimb var(--dur) linear infinite;
+    background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
+    transform: rotate(15deg);
+  }
+  
+  .hamster__limb--br,
+  .hamster__limb--bl {
+    border-radius: 0.75em 0.75em 0 0;
+    clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
+    top: 1em;
+    left: 2.8em;
+    width: 1.5em;
+    height: 2.5em;
+    transform-origin: 50% 30%;
+  }
+  
+  .hamster__limb--br {
+    animation: hamsterBRLimb var(--dur) linear infinite;
+    background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
+    transform: rotate(-25deg) translateZ(-1px);
+  }
+  
+  .hamster__limb--bl {
+    animation: hamsterBLLimb var(--dur) linear infinite;
+    background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
+    transform: rotate(-25deg);
+  }
+  
+  .hamster__tail {
+    animation: hamsterTail var(--dur) linear infinite;
+    background: hsl(0,90%,85%);
+    border-radius: 0.25em 50% 50% 0.25em;
+    box-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;
+    top: 1.5em;
+    right: -0.5em;
+    width: 1em;
+    height: 0.5em;
+    transform: rotate(30deg) translateZ(-1px);
+    transform-origin: 0.25em 0.25em;
+  }
+  
+  .spoke {
+    animation: spoke var(--dur) linear infinite;
+    background: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),
+          linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
+  }
+  
+  /* Animations */
+  @keyframes hamster {
+    from, to {
+      transform: rotate(4deg) translate(-0.8em,1.85em);
+    }
+  
+    50% {
+      transform: rotate(0) translate(-0.8em,1.85em);
+    }
+  }
+  
+  @keyframes hamsterHead {
+    from, 25%, 50%, 75%, to {
+      transform: rotate(0);
+    }
+  
+    12.5%, 37.5%, 62.5%, 87.5% {
+      transform: rotate(8deg);
+    }
+  }
+  
+  @keyframes hamsterEye {
+    from, 90%, to {
+      transform: scaleY(1);
+    }
+  
+    95% {
+      transform: scaleY(0);
+    }
+  }
+  
+  @keyframes hamsterEar {
+    from, 25%, 50%, 75%, to {
+      transform: rotate(0);
+    }
+  
+    12.5%, 37.5%, 62.5%, 87.5% {
+      transform: rotate(12deg);
+    }
+  }
+  
+  @keyframes hamsterBody {
+    from, 25%, 50%, 75%, to {
+      transform: rotate(0);
+    }
+  
+    12.5%, 37.5%, 62.5%, 87.5% {
+      transform: rotate(-2deg);
+    }
+  }
+  
+  @keyframes hamsterFRLimb {
+    from, 25%, 50%, 75%, to {
+      transform: rotate(50deg) translateZ(-1px);
+    }
+  
+    12.5%, 37.5%, 62.5%, 87.5% {
+      transform: rotate(-30deg) translateZ(-1px);
+    }
+  }
+  
+  @keyframes hamsterFLLimb {
+    from, 25%, 50%, 75%, to {
+      transform: rotate(-30deg);
+    }
+  
+    12.5%, 37.5%, 62.5%, 87.5% {
+      transform: rotate(50deg);
+    }
+  }
+  
+  @keyframes hamsterBRLimb {
+    from, 25%, 50%, 75%, to {
+      transform: rotate(-60deg) translateZ(-1px);
+    }
+  
+    12.5%, 37.5%, 62.5%, 87.5% {
+      transform: rotate(20deg) translateZ(-1px);
+    }
+  }
+  
+  @keyframes hamsterBLLimb {
+    from, 25%, 50%, 75%, to {
+      transform: rotate(20deg);
+    }
+  
+    12.5%, 37.5%, 62.5%, 87.5% {
+      transform: rotate(-60deg);
+    }
+  }
+  
+  @keyframes hamsterTail {
+    from, 25%, 50%, 75%, to {
+      transform: rotate(30deg) translateZ(-1px);
+    }
+  
+    12.5%, 37.5%, 62.5%, 87.5% {
+      transform: rotate(10deg) translateZ(-1px);
+    }
+  }
+  
+  @keyframes spoke {
+    from {
+      transform: rotate(0);
+    }
+  
+    to {
+      transform: rotate(-1turn);
+    }
+  }

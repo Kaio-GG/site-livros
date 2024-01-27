@@ -1,10 +1,15 @@
 import  { useNavigate }  from 'react-router-dom';
 import './index.scss';
+import storage from 'local-storage';
 
 export default function Navegacao(props){
     
     const navigate = useNavigate()
 
+    function sair() {
+        storage.remove('usuario-logado')
+        navigate('/')
+    }
 
     function home(){
         navigate('/home')
@@ -51,7 +56,7 @@ export default function Navegacao(props){
                 }
                 
             </div>
-            <div>
+            <div onClick={sair}>
                 <img src='/assets/image/logosair.svg' alt='' className='iconesair' />
             </div>
         </main>
