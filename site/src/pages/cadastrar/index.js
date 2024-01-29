@@ -264,7 +264,7 @@ useEffect(()=>{
                     <input className= 'input input-alt'
                     type='date'
                     value={info.data}
-                    onChange={(e) => setInfo({ ...info, data: e.target.value })}
+                    onChange={(e) => setInfo({ ...info, data:  String(e.target.value).substring(0,8) })}
                     />
                 </div>
                 <div className='campos'>

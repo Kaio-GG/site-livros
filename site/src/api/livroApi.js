@@ -47,3 +47,13 @@ export async function imagemLivro(id, img) {
         console.log(err.message)
     }
   }
+
+export async function carregarPorNomes(nome){
+  try {
+    const resp = await api.get(`/consultar/${nome}`);
+    return resp.data
+  } catch (err) {
+      console.log(err.message)
+  }
+}
+

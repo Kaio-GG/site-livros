@@ -35,7 +35,12 @@ export async function carregarTela(id){
 
 export async function consultarNome(nome){
     const comando = `
-        select id_livro, nm_livro, nm_autor, DT_PUBLICACAO, bt_disponivel   
+        select 
+        id_livro id,
+        nm_livro nome,
+        nm_autor autor,
+        DT_PUBLICACAO Dt,
+        BT_DISPONIVEL disponivel
         from tb_livro 
         where nm_livro = ?
         `
