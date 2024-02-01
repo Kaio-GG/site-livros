@@ -2,15 +2,30 @@ import './index.scss';
 import {React, useEffect, useState} from 'react'
 import Navegacao from '../../components/navegacao/navegacao.js';
 import Ptcima from '../../components/ptcima/ptcima.js';
-import { carregarTodos, carregarPorNomes } from '../../api/livroApi.js';
+import { carregarTodos, carregarPorNomes, deletar } from '../../api/livroApi.js'
+import { arrumarData } from '../../service/index.js';
+import { toast} from 'react-toastify'
+import {useNavigate} from 'react-router-dom';
+import storage from 'local-storage';
 
 
 export default function Consultar(){
 ///<img src='/assets/image/logofundo.svg' alt='' className='logofundo'/>
-                        
-
+                
         const [nome , setnome] = useState('')       
         const [livro, setLivro] = useState([])
+        const [iconArray, setIconArray] = useState(Array(livro.length).fill(false));
+
+
+        const Navigate = useNavigate()
+
+
+
+        async function deletarLivro(id){
+                const resp = await deletar(id)
+                toast.dark(resp)
+                carregarLivros()
+        }
 
         async function carregarLivros(){
                 let resp = await carregarTodos();
@@ -23,21 +38,41 @@ export default function Consultar(){
                 setLivro([resp])       
 
         }
-        const handleEnterPress = (event) => {
+        const chamarEnter = (event) => {
                 if (event.key === 'Enter') {
                   carregarLivrosNomes()
-                  console.log('Tecla Enter pressionada!');
                 }
               };
+        const mostraPassarMouse = (index) => {
+                const newArray = [...iconArray];
+                for (let i = 0; i < newArray.length; i++) {
+                        newArray[i] = false;
+                }
+                newArray[index] = true;
+                setIconArray(newArray);
+              };
+            
+        const mostarSairMouse = (index) => {
+                const newArray = [...iconArray];
+                newArray[index] = false;
+                setIconArray(newArray);
+              };
 
-
+        function decidir(){
+                
+        }
+        function colocarIdLivro(id){
+                storage('usuario-logado', id)
+                Navigate('/atualizar')
+        }
+        
 
         useEffect(() =>{
                 carregarLivros()
         },[])
 
     return(
-        <main className='pgconsultar' onKeyDown={handleEnterPress}>
+        <main className='pgconsultar' onKeyDown={chamarEnter}>
             <Navegacao pg='consultar'/>
             <div className='fundo'>
                 <Ptcima/>
@@ -69,26 +104,36 @@ export default function Consultar(){
                         </thead>
                         
                         {livro.map((livro, index) => (
-                        <tbody className='item'  key={index}>
+                        <tbody className='item'  key={index} onMouseEnter={() => mostraPassarMouse(index)} onMouseLeave={() => mostarSairMouse(index)} >
                         <tr>
-                        <td>{livro.id}</td>
+                                <td className='idLinha'>{livro.id}</td>
                         </tr>
                         <tr>
-                        <td>{livro.nome}</td>
+                                <td className='nomeLinha'>{livro.nome}</td>
                         </tr>
-                        <tr>      
-                        <td>{livro.autor}</td>
+                        <tr >      
+                                <td className='autorLinha'>{livro.autor}</td>
                         </tr>
-                        <tr>    
-                        <td> { String(livro.Dt).substr(0,10).replace('-','/').replace('-','/')}</td>
+                        <tr >    
+                                <td className='dataLinha'> {arrumarData(livro.Dt)}</td>
                         </tr>
-                        <tr>   
-                        <td>
+                        <tr className='disonivelLinha'>   
+                                <td className='disonivelLinha'>
                                 {livro.disponivel === 1 ? 
                                 <p>Sim</p>    
                                 : <p>Não</p>
                                 }
                         </td>
+                        </tr>
+                        <tr className='iconLinha'>
+                                <td className='iconLinha'>
+                                {iconArray[index] && (
+                                        <>
+                                        <img className='icon' src='/assets/image/edit.svg' alt='' onClick={() => Navigate(`/atualizar/${livro.id}`)} />
+                                        <img className='icon' src='/assets/image/remove.svg' alt='' onClick={() => deletarLivro(livro.id)} />
+                                        </>
+                                )}
+                                </td>
                         </tr>
                         </tbody>
                         ))}

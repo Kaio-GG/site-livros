@@ -68,10 +68,11 @@ server.get('/consultar/:nome', async (req, resp) => {
 server.delete('/deletar/:id', async (req, resp) => {
     try {
         const info = req.params.id
-        const resposta = deletarLivro(info);
-        if (resposta != 1) throw new Error('O livro não deletado');
+        const resposta = await deletarLivro(info);
+        if (resposta === 0) 
+            throw new Error('O livro não deletado');
         
-        resp.send('livro deletado').status(202)
+        resp.send('Livro deletado 🚀').status(202)
     } catch (err) {
         resp.status(401).send({
             erro: err.message

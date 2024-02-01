@@ -6,6 +6,9 @@ import {novoLivro, imagemLivro} from '../../api/livroApi.js'
 import  storage  from 'local-storage';
 import {toast} from 'react-toastify'
 
+
+
+
 export default function Cadastrar(){
     const [info, setInfo] = useState({id: storage('usuario-logado').data.id ,nmLivro: '',nmAutor: '',isbn: '',editora:'',edicao: '',sinopse: '',data: '',idioma: '',disponivel: false ,qtd: '',preco: ''});
     const [mostra, setmostra] = useState(false);

@@ -19,6 +19,18 @@
         margin: 5%;
         height: 70%;
     }
+    .icon{
+        padding-right: 10px;
+        cursor: pointer;
+    }
+    .cabe{
+        display: flex;
+        justify-content: space-evenly;
+        tr{
+            display: flex;
+            justify-content: center;
+        }
+    }
     .listar{
         display: flex;
         align-items: center;
@@ -49,6 +61,30 @@
         }
         td{
             width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .iconLinha{
+            display: flex;
+            align-items: center;
+            width: 50px;
+        }
+        .disonivelLinha{
+            display: flex;
+            justify-content: flex-end;
+            width: 15%;
+        }
+        .idLinha{
+            display: flex;
+            justify-content: center;
+        }
+        .dataLinha{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .autorLinha{
+            display: flex;
+            justify-content: flex-end;
         }
     }
     .cabe{
@@ -95,4 +131,5 @@
             outline: none;
         }
     }
+    
 }

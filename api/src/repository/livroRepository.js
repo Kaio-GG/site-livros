@@ -50,9 +50,10 @@ export async function consultarNome(nome){
 
 export async function deletarLivro(id){
     const comando = `
-        delete from tb_livro where id_livro =?
+        delete from tb_livro where id_livro = ?
     `
     const [linha] = await con.query(comando,[id]);
+    console.log(linha.affectedRows)
     return linha.affectedRows
 }
 

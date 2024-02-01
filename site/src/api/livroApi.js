@@ -57,3 +57,46 @@ export async function carregarPorNomes(nome){
   }
 }
 
+export async function deletar(id){
+  try {
+    console.log(id)
+    const resp = await api.delete(`/deletar/${id}`);
+    return resp.data
+  } catch (err) {
+    console.log(err.message)
+  }
+}
+
+export async function update(info){
+  try {
+    const resp = await api.put('/atualizar', {
+      nome: info.nmLivro , 
+      autor :  info.nmAutor , 
+      isbs :  info.isbn , 
+      editora :  info.editora , 
+      edicao :  info.edicao, 
+      sinopse :  info.sinopse , 
+      publi :  info.data , 
+      idioma :  info.idioma , 
+      disponivel : info.disponivel, 
+      qtd : info.qtd, 
+      preco : info.preco, 
+      id: info.id
+    })
+    return resp.data
+  } catch (err) {
+    console.log(err.message)
+  }
+}
+
+export async function carregarPorId(id){
+  try {
+    const resp = await api.get(`/consultar/info/${id}`)
+    console.log(resp.data[0])
+    return resp.data[0]
+  } catch (err) {
+    console.log(err.message)
+  }
+}
+
+
